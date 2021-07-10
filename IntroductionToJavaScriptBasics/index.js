@@ -74,61 +74,85 @@
 // Number(userResponse5) === correctAnswer5
 //     ? alert('Ответ Верный')
 //     : alert('Ответ Неверный')
+//
+// let correctAnswers = incorrectAnswers = 0;
+//
+// let a = Number(prompt('Сколько будет 2 + 2?'))
+// switch (a) {
+//     case 4:
+//         alert('Ответ Верный');
+//         correctAnswers++;
+//         break;
+//     default:
+//         alert('Ответ Неверный')
+//         incorrectAnswers++;
+// }
+// let b = Number(prompt('Сколько будет 2 * 2?'))
+// switch (b) {
+//     case 4:
+//         alert('Ответ Верный')
+//         correctAnswers++
+//         break;
+//     default:
+//         alert('Ответ Неверный')
+//         incorrectAnswers++
+// }
+// let c = Number(prompt('У Пети было 5 яблок. 3 из них он съел, 1 отдал другу. Сколько яблок у Пети осталось?'))
+// switch (c) {
+//     case 1:
+//         alert('Ответ Верный')
+//         correctAnswers++
+//         break;
+//     default:
+//         alert('Ответ Неверный')
+//         incorrectAnswers++
+// }
+// let d = Number(prompt('У Маши было 10 конфет. 2 она съела, 1 отдала другу. После мама дала Маше еще 5 конфет.' +
+//     ' Сколько в итоге конфет осталось у Маши?'))
+// switch (d) {
+//     case 12:
+//         alert('Ответ Верный')
+//         correctAnswers++
+//         break;
+//     default:
+//         alert('Ответ Неверный')
+//         incorrectAnswers++
+// }
+// let e = Number(prompt('Сколько будет 2 + 2 * 2?'))
+// switch (e) {
+//     case 6:
+//         alert('Ответ Верный')
+//         correctAnswers++
+//         break
+//     default:
+//         alert('Ответ Неверный')
+//         incorrectAnswers++
+// }
+//
+// alert(`Конец теста! Правильные ответы - ${correctAnswers}; Неправильные ответы - ${incorrectAnswers}.`)
 
-let correctAnswers = incorrectAnswers = 0;
+//Задание 5 - 6
 
-let a = Number(prompt('Сколько будет 2 + 2?'))
-switch (a) {
-    case 4:
-        alert('Ответ Верный');
-        correctAnswers++;
-        break;
-    default:
-        alert('Ответ Неверный')
-        incorrectAnswers++;
-}
-let b = Number(prompt('Сколько будет 2 * 2?'))
-switch (b) {
-    case 4:
-        alert('Ответ Верный')
-        correctAnswers++
-        break;
-    default:
-        alert('Ответ Неверный')
-        incorrectAnswers++
-}
-let c = Number(prompt('У Пети было 5 яблок. 3 из них он съел, 1 отдал другу. Сколько яблок у Пети осталось?'))
-switch (c) {
-    case 1:
-        alert('Ответ Верный')
-        correctAnswers++
-        break;
-    default:
-        alert('Ответ Неверный')
-        incorrectAnswers++
-}
-let d = Number(prompt('У Маши было 10 конфет. 2 она съела, 1 отдала другу. После мама дала Маше еще 5 конфет.' +
-    ' Сколько в итоге конфет осталось у Маши?'))
-switch (d) {
-    case 12:
-        alert('Ответ Верный')
-        correctAnswers++
-        break;
-    default:
-        alert('Ответ Неверный')
-        incorrectAnswers++
-}
-let e = Number(prompt('Сколько будет 2 + 2 * 2?'))
-switch (e) {
-    case 6:
-        alert('Ответ Верный')
-        correctAnswers++
-        break
-    default:
-        alert('Ответ Неверный')
-        incorrectAnswers++
-}
+const clientName = prompt('Введите имя клиента')
+let clientSpentForAllTime = +prompt('Сколько клиент потратил за все время?')
+let clientSpentToday = +prompt('Сколько клиент потратил сегодня?')
+let discount = 0
 
-alert(`Конец теста! Правильные ответы - ${correctAnswers}; Неправильные ответы - ${incorrectAnswers}.`)
+if (Number.isNaN(clientSpentForAllTime) && Number.isNaN(clientSpentForAllTime) ) {
+    alert('Сумма, которую клиент потратил за все время и которую потратил сегодня, должна быть числом! Перезагрузите страницу, чтобы повторить попытку.')
+} else if (Number.isNaN(clientSpentForAllTime) && Number.isNaN(clientSpentToday)) {
+    if (clientSpentForAllTime >= 100 && clientSpentForAllTime <= 300) {
+        discount = 10
+    } else if (clientSpentForAllTime >= 300 && clientSpentForAllTime <= 500) {
+        discount = 20
+    } else if (clientSpentForAllTime > 500) {
+        discount = 30
+    }
 
+    clientSpentForAllTime += discount
+    clientSpentToday = clientSpentToday - (clientSpentToday / 100 * discount)
 
+    alert(`Вам предоставляется скидка в ${discount}%!`)
+    alert(`Спасибо, ${clientName}! К оплате ${clientSpentToday}$.
+За все время в нашем ресторане вы потратили ${clientSpentForAllTime}$.`)
+}
