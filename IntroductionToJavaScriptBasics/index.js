@@ -133,26 +133,42 @@
 
 //Задание 5 - 6
 
-const clientName = prompt('Введите имя клиента')
-let clientSpentForAllTime = +prompt('Сколько клиент потратил за все время?')
-let clientSpentToday = +prompt('Сколько клиент потратил сегодня?')
-let discount = 0
+// const clientName = prompt('Введите имя клиента')
+// let clientSpentForAllTime = +prompt('Сколько клиент потратил за все время?')
+// let clientSpentToday = +prompt('Сколько клиент потратил сегодня?')
+// let discount = 0
+//
+// if (Number.isNaN(clientSpentForAllTime) && Number.isNaN(clientSpentForAllTime) ) {
+//     alert('Сумма, которую клиент потратил за все время и которую потратил сегодня, должна быть числом!
+//     Перезагрузите страницу, чтобы повторить попытку.')
+// } else if (Number.isNaN(clientSpentForAllTime) && Number.isNaN(clientSpentToday)) {
+//     if (clientSpentForAllTime >= 100 && clientSpentForAllTime <= 300) {
+//         discount = 10
+//     } else if (clientSpentForAllTime >= 300 && clientSpentForAllTime <= 500) {
+//         discount = 20
+//     } else if (clientSpentForAllTime > 500) {
+//         discount = 30
+//     }
+//
+//     clientSpentForAllTime += discount
+//     clientSpentToday = clientSpentToday - (clientSpentToday / 100 * discount)
+//
+//     alert(`Вам предоставляется скидка в ${discount}%!`)
+//     alert(`Спасибо, ${clientName}! К оплате ${clientSpentToday}$.
+// За все время в нашем ресторане вы потратили ${clientSpentForAllTime}$.`)
+// }
 
-if (Number.isNaN(clientSpentForAllTime) && Number.isNaN(clientSpentForAllTime) ) {
-    alert('Сумма, которую клиент потратил за все время и которую потратил сегодня, должна быть числом! Перезагрузите страницу, чтобы повторить попытку.')
-} else if (Number.isNaN(clientSpentForAllTime) && Number.isNaN(clientSpentToday)) {
-    if (clientSpentForAllTime >= 100 && clientSpentForAllTime <= 300) {
-        discount = 10
-    } else if (clientSpentForAllTime >= 300 && clientSpentForAllTime <= 500) {
-        discount = 20
-    } else if (clientSpentForAllTime > 500) {
-        discount = 30
-    }
+// additional task
 
-    clientSpentForAllTime += discount
-    clientSpentToday = clientSpentToday - (clientSpentToday / 100 * discount)
+const userPassword = prompt('Введите пароль').trim()
 
-    alert(`Вам предоставляется скидка в ${discount}%!`)
-    alert(`Спасибо, ${clientName}! К оплате ${clientSpentToday}$.
-За все время в нашем ресторане вы потратили ${clientSpentForAllTime}$.`)
+const passwordLength = !userPassword.length < 3 || !userPassword.length > 20
+
+const searchInPassword = userPassword.search(/[A-Z]/) !== -1 && userPassword.search(/\d/) !== -1
+
+
+if (passwordLength && searchInPassword) {
+    alert('Пароль валидный. Добро пожаловать в аккаунт!')
+} else {
+    alert('Пароль не удовлетворяет условиям! Перезагрузите страницу и попробуйте ввести его еще раз.')
 }
