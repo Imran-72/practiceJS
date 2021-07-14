@@ -41,45 +41,90 @@
 // console.log(getSumOfNumbers(100, ''))
 
 // task 3
-//
+
 // const getDivisors = (number = 1) => {
-// let divisor = [], i = 3
+//     let a = 0
+//     let b = 0
 //
-// while (i < number) {
-//     if (number % i === 0) divisor.push(i)
-//     i += 3
+//     if (number <= 0 && Number.isInteger(number)) {
+//         alert(`number должен быть целым числом и больше нуля!`)
+//     }
+//
+//     while (a <= number) {
+//         if (number % a === 0) {
+//             b++
+//         }
+//         a++
+//     }
+//     return b
 // }
-// return divisor
-// }
+// console.log(getDivisors())
 //
-// console.log(getDivisors(20))
-
-const getDivisors = (number = 1) => {
-    let divisor = []
-    for (let i = 3; i < number; i += 3) {
-        if (number < 0 && Number.isInteger(number)) {
-            alert(`number должен быть целым числом и больше нуля!`)
-        } else if (number % i === 0) {
-            divisor.push(i)
-        }
-    }
-    return divisor
-}
-console.log(getDivisors(10))
-
-// let n = 4, divisor = [], i = 2;
+// // task 4
 //
-// while (i < n) {
+// const checkQuestionAnswer = (question, correctAnswer) => {
+//     let userCorrectAnswer = prompt(question).toLowerCase().trim()
+//     let CorrectAnswer = correctAnswer.toLowerCase().trim()
 //
-//     if (n % i === 0) divisor.push(i);
-//
-//     i = i + 2;
-// }
-//
-// alert(divisor);
-// let number = 15;
-// for (let i=  1; i <= number; i++) {
-//     if (number % i === 0 && number !== number && number !== 1) {
-//         console.log(i);
+//     if (CorrectAnswer === userCorrectAnswer) {
+//         alert(`Ответ верный`)
+//     } else {
+//         alert(`Ответ неверный`)
 //     }
 // }
+// checkQuestionAnswer(`Арбуз это фрукт или ягода?`, `Ягода`)
+// checkQuestionAnswer(`Сколько в среднем зубов у взрослого человека?`, `32`)
+// checkQuestionAnswer(`Как называется самая маленькая птица в мире?`, `Колибри`)
+
+// task dop
+
+// const showSuccessMessage = (message) => {
+//     console.log(message)
+// }
+// const showErrorMessage = (message) => {
+//     console.error(message)
+// }
+//
+// const checkTextOnErrorSymbol = (text, errorSymbol, successCallback, errorCallback) => {
+//     let newText
+//     for (let i = 0; i <= text.length; i++) {
+//         newText = text[i]
+//         if (newText === newText) {
+//             errorCallback(`Найден запрещенный символ ${errorSymbol} под индексом ${i}.`)
+//         }
+//     }
+//     if (errorSymbol) {
+//         successCallback('В данном тексте нет запрещенных символов')
+//     }
+// }
+//
+// const str = `Привет! Как дела! Давно мы с тобой не виделись.`
+// checkTextOnErrorSymbol(str, 'a', showSuccessMessage, showErrorMessage)
+
+
+const showSuccessMessage = (message) => {
+    console.log(message)
+}
+
+const showErrorMessage = (message) => {
+    console.error(message)
+}
+
+const checkTextOnErrorSymbol = (text, errorSymbol, successCallback, errorCallback) => {
+    let isErrorSymbol = true
+
+    for (let i = 0; i <= text.length; i++) {
+        let currentEl = text[i]
+        if (currentEl === errorSymbol) {
+            isErrorSymbol = false
+            errorCallback(`Найден запрещенный символ ${errorSymbol} под индексом ${i}.`)
+        }
+    }
+
+    if (isErrorSymbol) successCallback('В данном тексте нет запрещенных символов')
+
+}
+
+let str = 'Привет! Как дела? Давно мы с тобой не виделись.'
+
+console.log(checkTextOnErrorSymbol(str, 'а', showSuccessMessage, showErrorMessage))
