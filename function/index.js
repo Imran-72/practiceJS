@@ -78,22 +78,39 @@
 
 // task dop
 
-// const showSuccessMessage = (message) => {
-//     console.log(message)
-// }
-// const showErrorMessage = (message) => {
-//     console.error(message)
-// }
+const showSuccessMessage = (message) => {
+    console.log(message)
+}
+const showErrorMessage = (message) => {
+    console.error(message)
+}
+
+const checkTextOnErrorSymbol = (text, errorSymbol, successCallback, errorCallback) => {
+    let isErrorSymbol = true
+    for (let i = 0; i <= text.length; i++) {
+        if (text[i] === errorSymbol) {
+            isErrorSymbol = false
+            errorCallback(`Найден запрещенный символ "${errorSymbol}" под индексом ${i}.`)
+        }
+    }
+    if (isErrorSymbol){
+        successCallback('В данном тексте нет запрещенных символов')
+    }
+}
+const messageText = `Привет! Как дела! Давно мы с тобой не виделись.`
+checkTextOnErrorSymbol(messageText, 'а', showSuccessMessage, showErrorMessage)
+
+// let name = `Imran!!!`
+// let re = /[A-Z а-я]/
 //
-// const checkTextOnErrorSymbol = (text, errorSymbol, successCallback, errorCallback) => {
-//     for (let i = 0; i <= text.length; i++) {
-//         errorSymbol !== text[i]
-//             ? successCallback('В данном тексте нет запрещенных символов')
-//             : errorCallback(`Найден запрещенный символ "${errorSymbol}" под индексом ${i}.`)
+// for (let i = 0; i <= name.length; i++) {
+//     let newName = name[i]
+//     if (newName.search(re) !== -1) {
+//         console.log('yeeeee')
+//     } else {
+//         console.log('beeeeee')
 //     }
 // }
-// const messageText = `Привет! Как дела! Давно мы с тобой не виделись.`
-// checkTextOnErrorSymbol(messageText, 'а', showSuccessMessage, showErrorMessage)
 
 
 // function isValid(username) {
