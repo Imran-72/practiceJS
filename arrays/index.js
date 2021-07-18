@@ -104,12 +104,85 @@
 
 // task 7
 
-const goals = [8, 1, 1, 3, 2, -1, 5]
-let numberOfGoals = Math.max.apply(Math, goals)
-let number = goals.indexOf(numberOfGoals)
-alert(`Самый результативный матч был под номером ${++number}. В нем было забито ${numberOfGoals} гол(ов).`)
-// let numberOfGoalS = goals.filter((num) => num < numberOfGoals)
-// let numbers = numberOfGoalS.findIndex((num) => num > 5  )
-// console.log(numbers)
-// alert(`Самые не результативные матчи были под номерами ${numbers}. В каждом из них было забито по ${numberOfGoalS } мячу(а).`)
+//Самый результативный матч по количеству голов
+// const goals = [8, 1, 1, 3, 2, -1, 5]
+// let numberOfGoals = Math.max.apply(Math, goals)
+// let number = goals.indexOf(numberOfGoals)
+// alert(`Самый результативный матч был под номером ${++number}. В нем было забито ${numberOfGoals} гол(ов).`)
 
+//Самые нерезультативные игры
+// let numberOfGoalS = goals.filter((num) => num < numberOfGoals)
+// let numbers = numberOfGoalS.filter((num) => num % 2 === 0  )
+// console.log(numbers)
+// alert(`Самые не результативные матчи были под номерами ${numbers}. В каждом из них было забито по ${numberOfGoalS} мячу(а).`)
+
+//Общее количество голов за сезон
+// numberOfGoals = goals.reduce((acc,num) => {
+//     return acc + num
+// }, 0)
+// alert(`Общее количество голов за сезон равно ${numberOfGoals + 1}`)
+
+//Были ли автоматические поражения
+// if (numberOfGoals.find(numberOfGoals) === -1 ) {
+//     alert(`Были автоматические поражения: да`)
+// } else {
+//     alert(`Были автоматические поражения: нет`)
+// }
+
+
+//среднее кол голов за матч
+// const averageNumberGoals = Math.floor(numberOfGoals / 6 + 1)
+// alert(`Среднее количество голов за матч равно ${averageNumberGoals}`)
+//
+// //сортировка  вывод
+// let countAscending = goals.sort((a, b) => a - b)
+// const index = countAscending.indexOf(-1)
+// if (index === 0) countAscending.splice(index, 1)
+// alert(countAscending.join(', '))
+
+
+// task dop
+// const getMathResult = (expression) => {
+//     if (expression.indexOf('+') === 1) {
+//        let arr = expression.reduce((acc, num) => {
+//             return acc + num
+//         }, 0)
+//         console.log(arr)
+//     }
+// }
+//
+//
+// getMathResult(['100', '+', 300])
+
+// const getMathResult = (...expression) =>
+//     [...expression].reduce((a, b) => a * b, 1)
+//
+// console.log(getMathResult(3, 4))
+
+// dop 2
+// const array = (a, b) => {
+//     let arr = []
+//     for (let i = 1; i <= b; i++) {
+//         //arr.push(new Array(a).fill(0))
+//         for (let i = 1; i <= a.length; i++) {
+//             arr.push(new Array(a))
+//         }
+//     }
+//     return arr
+// }
+//
+// console.log(array(5, 3))
+
+
+// console.log(Array)
+//
+
+const matrix = (m, n) => {
+    let result = []
+    for (let i = 1; i <= m; i++) {
+        result.push(new Array(n).push(1,2,3,4,5))
+    }
+    return result
+}
+
+console.log(matrix(3, 5))
