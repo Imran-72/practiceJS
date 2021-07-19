@@ -102,7 +102,7 @@
 // alert(`Всего положительных оценок: ${goodEstimations.length}; Всего отрицательных оценок: ${notGoodEstimations.length}`)
 
 
-// task 7
+// task 7 не смог выполнить второе условие
 
 //Самый результативный матч по количеству голов
 // const goals = [8, 1, 1, 3, 2, -1, 5]
@@ -141,7 +141,7 @@
 // alert(countAscending.join(', '))
 
 
-// task dop
+// task dop не смог решить
 // const getMathResult = (expression) => {
 //     if (expression.indexOf('+') === 1) {
 //        let arr = expression.reduce((acc, num) => {
@@ -159,7 +159,7 @@
 //
 // console.log(getMathResult(3, 4))
 
-// dop 2
+// dop 2 решил на 80%
 // const array = (a, b) => {
 //     let arr = []
 //     for (let i = 1; i <= b; i++) {
@@ -177,12 +177,23 @@
 // console.log(Array)
 //
 
-const matrix = (m, n) => {
-    let result = []
-    for (let i = 1; i <= m; i++) {
-        result.push(new Array(n).push(1,2,3,4,5))
-    }
-    return result
-}
+// const matrix = (m, n) => {
+//     let result = []
+//     for (let i = 1; i <= m; i++) {
+//         result.push(new Array(n).push(1,2,3,4,5))
+//     }
+//     return result
+// }
+// console.log(matrix(3, 5))
 
-console.log(matrix(3, 5))
+// dop 3
+
+// const matrix = [
+//     [ 1, 2, 3 ],
+//     [ 4, 5, 6 ],
+//     [ 7, 8, 9 ],
+// ]
+//
+// const arr = []
+// const newArr = arr.concat(...matrix)
+// console.log(newArr)
