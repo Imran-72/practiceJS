@@ -110,13 +110,6 @@
 
 
 // task 4
-const getKillers = {
-    James: ['Jacob', 'Bill', 'Lucas'],
-    Johnny: ['David', 'Kyle', 'Lucas'],
-    Peter: ['Lucy', 'Kyle'],
-}
-
-const deadPeoples = ['Lucas', 'Bill']
 
 // if (getKillers.James.includes('Bill') && getKillers.James.includes('Lucas') === true) {
 //     alert(`Убийца James`)
@@ -128,24 +121,114 @@ const deadPeoples = ['Lucas', 'Bill']
 //     alert('Убийца Peter')
 // }
 
+//
+// const getKiller = (suspectInfo, deadPeople) => {
+//     for (let i=0; i< suspectInfo.length; i++) {
+//         if ()
+//     }
+//     // if (suspectInfo.includes(deadPeople) && suspectInfo.includes(deadPeople) === true) {
+//     //     alert(`Убийца James`)
+//     // }
+//     // if (getKiller.includes('Bill') && getKiller.includes('Lucas') === true) {
+//     //     alert(`Убийца Johnny`)
+//     // }
+//     // if (getKiller.includes('Bill') && getKiller.includes('Lucas') === true) {
+//     //     alert('Убийца Peter')
+//     // }
+// }
+//
+// getKiller({
+//     James: ['Jacob', 'Bill', 'Lucas'],
+//     Johnny: ['David', 'Kyle', 'Lucas'],
+//     Peter: ['Lucy', 'Kyle'],
+// }, ['Lucas', 'Bill'])
 
-const getKiller = (getKiller, deadPeople) => {
-    if (getKiller.includes('Bill') && getKiller.includes('Lucas') === true) {
-        alert(`Убийца James`)
-    }
-    // if (getKiller.includes('Bill') && getKiller.includes('Lucas') === true) {
-    //     alert(`Убийца Johnny`)
-    // }
-    // if (getKiller.includes('Bill') && getKiller.includes('Lucas') === true) {
-    //     alert('Убийца Peter')
-    // }
+// task 6
+
+// const todayWinner = {
+//     prize: '10 000$',
+// }
+//
+// const winnerApplicants = {
+//     '001': {
+//         name: 'Максим',
+//         age: 25,
+//     },
+//     '201': {
+//         name: 'Светлана',
+//         age: 20,
+//     },
+//     '304': {
+//         name: 'Екатерина',
+//         age: 35,
+//     },
+// }
+//
+//
+// function getRandomNumberInRange(min, max) {
+//     return Math.floor(Math.random() * (max - min)) + min;
+// }
+//
+// const numResult = getRandomNumberInRange(1, 304)
+// let obj
+// const getWinner = (applicants, winnerObject) => {
+//     if (numResult === 1) {
+//         return obj = {...winnerObject, ...applicants['001']}
+//     } else if (numResult === 201) {
+//         return obj = {...winnerObject, ...applicants['201']}
+//     } else if (numResult === 304) {
+//         return obj = {...winnerObject, ...applicants['304']}
+//     } else {
+//         alert(`Крутите ещё`)
+//     }
+// }
+//
+// const resultWinner = getWinner(winnerApplicants, todayWinner);
+// console.log('resultWinner', resultWinner)
+
+
+// task 6
+
+const ordersArr = [4, 2, 1, 3];
+const people = [
+    {id: 1, name: "Максим"},
+    {id: 2, name: "Николай"},
+    {id: 3, name: "Ангелина"},
+    {id: 4, name: "Виталий"},
+]
+
+let newObj
+
+const giveTalonsInOrder = (patients, orders) => {
+    debugger
+    return newObj = patients.sort((a, b) => {
+        debugger
+        return orders.indexOf(a.id) - orders.indexOf(b.id)
+    })
 }
 
-getKiller(getKillers.О, deadPeoples)
-// const killer = getKiller( {
-//     'James': ['Jacob', 'Bill', 'Lucas'],
-//     'Johnny': ['David', 'Kyle', 'Lucas'],
-//     'Peter': ['Lucy', 'Kyle'],
-// }, ['Lucas', 'Bill'])
-//
-// console.log('killer', killer)
+const result = giveTalonsInOrder(people, ordersArr);
+console.log('result', result)
+
+// task dop
+
+const groceries = {
+    "Orange Juice": {
+        price : 1.5,
+        discount: 10,
+    },
+    "Chocolate": {
+        price : 2,
+        discount : 0,
+    },
+// more items...
+}
+
+const shoppingBag = [
+    { product: 'Chocolate', quantity: 3 },
+    { product: 'Orange Juice', quantity: 23 },
+]
+
+const getTotalPriceOfShoppingBag = (shoppingBag) => {
+
+}
