@@ -14,15 +14,64 @@
 //task 2
 
 // let objBirthday = new Date(2022, 6, 2)
-// let convertMsToD
+//
 // const getDaysBeforeBirthday = (nextBirthdayDate) => {
-//     return convertMsToD = nextBirthdayDate - new Date()
+//     return Math.round((nextBirthdayDate - new Date()) / 1000 / 3600 / 24)
 // }
 //
-// const convertMsToDays = (convertMsToD) => {
-//     return  Math.round(convertMsToD)
+// console.log(getDaysBeforeBirthday(objBirthday))
+
+// task 3
+
+// let dateObj = new Date()
+// // let time = dateObj.getTime()
+//
+// // console.log(time)
+//
+// const addDays = (date, days = 1) => {
+//     const updateDays = () => {
+//         return date.getTime() + days
+//     }
+//     return dateObj
 // }
-// // console.log(convertMsToDays(348.444444))
-// console.log(convertMsToDays(getDaysBeforeBirthday(objBirthday)))
-let months = Math.floor(t / (1000 * 60 * 60 * 24 * 30) % 12)
-console.log(months)
+// console.log(addDays(dateObj))
+
+// dop task
+
+const peopleWithVisa = [
+    {
+        firstName: 'Stasia',
+        lastName: 'Ward',
+        criminalRecord: true,
+        passportExpiration: '19.06.2023',
+    },
+    {
+        firstName: 'Elliot',
+        lastName: 'Baker',
+        criminalRecord: false,
+        passportExpiration: '04.06.2021',
+    },
+    {
+        firstName: 'Leighann',
+        lastName: 'Scott',
+        criminalRecord: true,
+        passportExpiration: '31.07.2022',
+    },
+    {
+        firstName: 'Nick',
+        lastName: 'Pop',
+        criminalRecord: false,
+        passportExpiration: '31.12.2021',
+    },
+]
+
+let dateObj = new Date()
+
+const allowVisa = (people) => {
+    return people.filter(newPeople =>  {
+        return newPeople.criminalRecord === false || people.passportExpiration > dateObj
+    })
+}
+
+const result = allowVisa(peopleWithVisa)
+console.log('result', result)
