@@ -55,9 +55,24 @@ const tasks = [
 ]
 
 const tasks_list = document.querySelector('.tasks-list')
+const create_task_block = document.querySelector('.create-task-block')
+
+create_task_block.addEventListener('submit', (e) => {
+    const {target} = e
+    const inputTaskName = target.taskName
+    e.preventDefault()
+    const inputValue = inputTaskName.value
+    if (!inputValue) return;
+    let newTask = {
+        id: 4,
+        completed: false,
+        text: inputValue
+    }
+    tasks.push(newTask)
+    // tasks_list.append(create_task_block)
+})
 
 for (let i = 0; i < tasks.length; i++) {
-
     const task_item = document.createElement('div')
     task_item.classList.add('task-item')
     task_item.setAttribute('data-task-id', `${tasks[i].id}`)
@@ -96,4 +111,11 @@ for (let i = 0; i < tasks.length; i++) {
     task_item__main_container.append(task_item__delete)
     task_item.append(task_item__main_container)
     tasks_list.append(task_item)
+
 }
+
+// task 3
+
+
+console.log(tasks)
+
