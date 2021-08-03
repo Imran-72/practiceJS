@@ -365,4 +365,4 @@ select_dropdown__button.addEventListener('click', (e) => {
 //
 // const customSelect = new CustomSelect('123', options);
 // const mainContainer = document.querySelector('#container');
-// customSelect.render(mainContainer)
+// customSelect.render(mainContainer).
