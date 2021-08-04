@@ -279,77 +279,110 @@
 
 // dop task
 
-const Container = document.querySelector('#container')
 
-const select_dropdown = document.createElement('div')
-select_dropdown.className = 'select-dropdown select-dropdown--123'
+const options = [
+    {value: 1, text: 'JavaScript'},
+    {value: 2, text: 'NodeJS'},
+    {value: 3, text: 'ReactJS'},
+    {value: 4, text: 'HTML'},
+    {value: 5, text: 'CSS'},
+]
 
-const select_dropdown__button = document.createElement('button')
-select_dropdown__button.className = 'select-dropdown__button select-dropdown__button--123'
+class CustomSelect {
+    #id
+    #options
 
-const select_dropdownSpan = document.createElement('span')
-select_dropdownSpan.className = 'select-dropdown select-dropdown--123'
-select_dropdownSpan.textContent = 'Выберите Элемент'
-
-const select_dropdown__list = document.createElement('ul')
-select_dropdown__list.className = 'select-dropdown__list select-dropdown__list--123'
-
-const select_dropdown__list_item1 = document.createElement('li')
-select_dropdown__list_item1.classList.add('select-dropdown__list-item')
-select_dropdown__list_item1.setAttribute('data-value', '1')
-select_dropdown__list_item1.textContent = 'JavaScript'
-
-const select_dropdown__list_item2 = document.createElement('li')
-select_dropdown__list_item2.classList.add('select-dropdown__list-item')
-select_dropdown__list_item2.setAttribute('data-value', '2')
-select_dropdown__list_item2.textContent = 'NodeJs'
-
-const select_dropdown__list_item3 = document.createElement('li')
-select_dropdown__list_item3.classList.add('select-dropdown__list-item')
-select_dropdown__list_item3.setAttribute('data-value', '3')
-select_dropdown__list_item3.textContent = 'ReactJs'
-
-const select_dropdown__list_item4 = document.createElement('li')
-select_dropdown__list_item4.classList.add('select-dropdown__list-item')
-select_dropdown__list_item4.setAttribute('data-value', '4')
-select_dropdown__list_item4.textContent = 'HTML'
-
-const select_dropdown__list_item5 = document.createElement('li')
-select_dropdown__list_item5.classList.add('select-dropdown__list-item')
-select_dropdown__list_item5.setAttribute('data-value', '5')
-select_dropdown__list_item5.textContent = 'CSS'
-
-select_dropdown__list.append(select_dropdown__list_item1)
-select_dropdown__list.append(select_dropdown__list_item2)
-select_dropdown__list.append(select_dropdown__list_item3)
-select_dropdown__list.append(select_dropdown__list_item4)
-select_dropdown__list.append(select_dropdown__list_item5)
-
-select_dropdown__button.append(select_dropdownSpan)
-
-select_dropdown.append(select_dropdown__button)
-select_dropdown.append(select_dropdown__list)
-
-
-select_dropdown__button.addEventListener('click', (e) => {
-    const clickButton = e
-    if (clickButton) {
-        select_dropdown__list.classList.add('active')
-        Container.append(select_dropdown)
+    constructor(id, options) {
+        this.#id = id
+        this.#options = options
     }
-})
 
-// const options = [
-//     {value: 1, text: 'JavaScript'},
-//     {value: 2, text: 'NodeJS'},
-//     {value: 3, text: 'ReactJS'},
-//     {value: 4, text: 'HTML'},
-//     {value: 5, text: 'CSS'},
-// ]
+    render(container) {
+        const Container = document.querySelector('#container')
+
+        const select_dropdown = document.createElement('div')
+        select_dropdown.className = `select-dropdown select-dropdown--${this.#id}`
+
+        const select_dropdown__button = document.createElement('button')
+        select_dropdown__button.className = `select-dropdown__button select-dropdown__button--${this.#id}`
+
+        const select_dropdownSpan = document.createElement('span')
+        select_dropdownSpan.className = `select-dropdown select-dropdown--${this.#id}`
+        select_dropdownSpan.textContent = 'Выберите Элемент'
+
+        const select_dropdown__list = document.createElement('ul')
+        select_dropdown__list.className = `select-dropdown__list select-dropdown__list--${this.#id}`
+
+        const select_dropdown__list_item1 = document.createElement('li')
+        select_dropdown__list_item1.classList.add('select-dropdown__list-item')
+        select_dropdown__list_item1.setAttribute('data-value', '1')
+        select_dropdown__list_item1.textContent = 'JavaScript'
+
+        const select_dropdown__list_item2 = document.createElement('li')
+        select_dropdown__list_item2.classList.add('select-dropdown__list-item')
+        select_dropdown__list_item2.setAttribute('data-value', '2')
+        select_dropdown__list_item2.textContent = 'NodeJs'
+
+        const select_dropdown__list_item3 = document.createElement('li')
+        select_dropdown__list_item3.classList.add('select-dropdown__list-item')
+        select_dropdown__list_item3.setAttribute('data-value', '3')
+        select_dropdown__list_item3.textContent = 'ReactJs'
+
+        const select_dropdown__list_item4 = document.createElement('li')
+        select_dropdown__list_item4.classList.add('select-dropdown__list-item')
+        select_dropdown__list_item4.setAttribute('data-value', '4')
+        select_dropdown__list_item4.textContent = 'HTML'
+
+        const select_dropdown__list_item5 = document.createElement('li')
+        select_dropdown__list_item5.classList.add('select-dropdown__list-item')
+        select_dropdown__list_item5.setAttribute('data-value', '5')
+        select_dropdown__list_item5.textContent = 'CSS'
+
+        select_dropdown__list.append(select_dropdown__list_item1)
+        select_dropdown__list.append(select_dropdown__list_item2)
+        select_dropdown__list.append(select_dropdown__list_item3)
+        select_dropdown__list.append(select_dropdown__list_item4)
+        select_dropdown__list.append(select_dropdown__list_item5)
+
+        select_dropdown__button.append(select_dropdownSpan)
+
+        select_dropdown.append(select_dropdown__button)
+        select_dropdown.append(select_dropdown__list)
+        Container.append(select_dropdown)
+        const Li = document.querySelector('li')
+        select_dropdown__button.addEventListener('click', (e) => {
+            const {target} = e
+            if (target) {
+                select_dropdown__list.classList.toggle('active')
+            }
+            Li.addEventListener('click', (e) => {
+                const result = e
+                console.log(result)
+            })
+        })
+    }
+
+}
+
+const customSelect = new CustomSelect('123', options);
+const mainContainer = document.querySelector('#container');
+customSelect.render(mainContainer)
+
+
+// // Доп задание
 //
 // class CustomSelect {
 //     #id
 //     #options
+//     #currentSelectedOption
+//
+//     get selectedValue() {
+//         return this.#currentSelectedOption
+//     }
+//
+//     set selectedValue( value ) {
+//         this.#currentSelectedOption = value
+//     }
 //
 //     constructor(id, options) {
 //         this.#id = id
@@ -357,12 +390,77 @@ select_dropdown__button.addEventListener('click', (e) => {
 //     }
 //
 //     render(container) {
-//         const Container = document.querySelector('#container')
-//         Container.append(container)
+//         const selectDropdown = document.createElement('div')
+//         selectDropdown.className = `select-dropdown select-dropdown--${this.#id}`
+//         container.append(selectDropdown)
+//
+//         const btnSelectDropdown = document.createElement('button')
+//         btnSelectDropdown.className = `select-dropdown__button select-dropdown__button--${this.#id}`
+//         selectDropdown.append(btnSelectDropdown)
+//
+//         const spanSelectDropdown = document.createElement('span')
+//         spanSelectDropdown.className = `select-dropdown select-dropdown--${this.#id}`
+//         spanSelectDropdown.textContent = 'Selected technologies'
+//         btnSelectDropdown.append(spanSelectDropdown)
+//
+//         const ulSelectDropdownList = document.createElement('ul')
+//         ulSelectDropdownList.className = `select-dropdown__list select-dropdown__list--${this.#id}`
+//         selectDropdown.append(ulSelectDropdownList)
+//
+//         this.#options.forEach(el => {
+//             let liSelectDropdownListItem = document.createElement('li')
+//             liSelectDropdownListItem.className = 'select-dropdown__list-item'
+//             liSelectDropdownListItem.dataset.value = el.value
+//             liSelectDropdownListItem.innerText = el.text
+//             ulSelectDropdownList.append(liSelectDropdownListItem)
+//         })
+//
+//
+//         btnSelectDropdown.addEventListener('click', () => {
+//
+//             if ( ulSelectDropdownList.classList.contains('active') ){
+//                 ulSelectDropdownList.classList.remove('active')
+//
+//             } else {
+//
+//                 ulSelectDropdownList.classList.add('active')
+//
+//                 ulSelectDropdownList.addEventListener('click', (listEl) => {
+//                     const selectedListItem = document.querySelector('.selected')
+//                     if ( selectedListItem !== null ){
+//                         selectedListItem.classList.remove('selected')
+//                     }
+//                     if ( listEl.target.classList.contains('select-dropdown__list-item') ){
+//                         const currentLi = listEl.target
+//                         currentLi.classList.add('selected')
+//
+//                         const currentLiText = currentLi.textContent
+//                         const currentLiValue = currentLi.dataset.value
+//                         options.forEach( i => {
+//                             if ( i.value == currentLiValue ){
+//                                 this.selectedValue = i
+//                             }
+//                         })
+//
+//                         spanSelectDropdown.textContent = currentLiText
+//                         ulSelectDropdownList.classList.remove('active')
+//                     }
+//                 })
+//             }
+//
+//         })
 //     }
+//
+//
 // }
 //
-//
+// const options = [
+//     { value: 1, text: 'JavaScript' },
+//     { value: 2, text: 'NodeJS' },
+//     { value: 3, text: 'ReactJS' },
+//     { value: 4, text: 'HTML' },
+//     { value: 5, text: 'CSS' },
+// ];
 // const customSelect = new CustomSelect('123', options);
 // const mainContainer = document.querySelector('#container');
-// customSelect.render(mainContainer).
+// customSelect.render(mainContainer);
