@@ -47,5 +47,5 @@ userList
     })
     .catch((error) => {
         console.log(error)
-    })
+    }).
 
